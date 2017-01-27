@@ -1,0 +1,100 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<classpath>
+	<classpathentry including="**/*.java" kind="src" output="target/classes" path="src">
+		<attributes>
+			<attribute name="optional" value="true"/>
+			<attribute name="maven.pomderived" value="true"/>
+		</attributes>
+	</classpathentry>
+	<classpathentry kind="con" path="org.eclipse.jdt.launching.JRE_CONTAINER/org.eclipse.jdt.internal.debug.ui.launcher.StandardVMType/JavaSE-1.8">
+		<attributes>
+			<attribute name="maven.pomderived" value="true"/>
+		</attributes>
+	</classpathentry>
+	<classpathentry kind="con" path="org.eclipse.jst.server.core.container/org.eclipse.jst.server.tomcat.runtimeTarget/Apache Tomcat v7.0">
+		<attributes>
+			<attribute name="owner.project.facets" value="jst.web"/>
+		</attributes>
+	</classpathentry>
+	<classpathentry kind="lib" path="E:/cr4e_2.0.18/eclipse/plugins/com.businessobjects.crystalreports.crsdk.designer.libs_12.2.219.r2600.jar"/>
+	<classpathentry kind="lib" path="E:/cr4e_2.0.18/eclipse/plugins/com.businessobjects.crystalreports.crsdk_12.2.219.r2600.jar"/>
+	<classpathentry kind="lib" path="E:/cr4e_2.0.18/eclipse/plugins/com.businessobjects.crystalreports.designer.blankreportwizard_12.2.219.r2600.jar"/>
+	<classpathentry kind="lib" path="E:/cr4e_2.0.18/eclipse/plugins/com.businessobjects.crystalreports.designer.core_12.2.219.r2600.jar"/>
+	<classpathentry kind="lib" path="E:/cr4e_2.0.18/eclipse/plugins/com.businessobjects.crystalreports.designer.cr4eintegration_12.2.219.r2600.jar"/>
+	<classpathentry kind="lib" path="E:/cr4e_2.0.18/eclipse/plugins/com.businessobjects.crystalreports.designer.dataconnectivity.jdbc_12.2.219.r2600.jar"/>
+	<classpathentry kind="lib" path="E:/cr4e_2.0.18/eclipse/plugins/com.businessobjects.crystalreports.designer.dataconnectivity.odbc_12.2.219.r2600.jar"/>
+	<classpathentry kind="lib" path="E:/cr4e_2.0.18/eclipse/plugins/com.businessobjects.crystalreports.designer.dataconnectivity_12.2.219.r2600.jar"/>
+	<classpathentry kind="lib" path="E:/cr4e_2.0.18/eclipse/plugins/com.businessobjects.crystalreports.designer.datapage_12.2.219.r2600.jar"/>
+	<classpathentry kind="lib" path="E:/cr4e_2.0.18/eclipse/plugins/com.businessobjects.crystalreports.designer.dseintegration_12.2.219.r2600.jar"/>
+	<classpathentry kind="lib" path="E:/cr4e_2.0.18/eclipse/plugins/com.businessobjects.crystalreports.designer.eclipseideintegration_12.2.219.r2600.jar"/>
+	<classpathentry kind="lib" path="E:/cr4e_2.0.18/eclipse/plugins/com.businessobjects.crystalreports.designer.editablepreview_12.2.219.r2600.jar"/>
+	<classpathentry kind="lib" path="E:/cr4e_2.0.18/eclipse/plugins/com.businessobjects.crystalreports.designer.editor_12.2.219.r2600.jar"/>
+	<classpathentry kind="lib" path="E:/cr4e_2.0.18/eclipse/plugins/com.businessobjects.crystalreports.designer.enginepreferences_12.2.219.r2600.jar"/>
+	<classpathentry kind="lib" path="E:/cr4e_2.0.18/eclipse/plugins/com.businessobjects.crystalreports.designer.fieldexplorer_12.2.219.r2600.jar"/>
+	<classpathentry kind="lib" path="E:/cr4e_2.0.18/eclipse/plugins/com.businessobjects.crystalreports.designer.formulapage_12.2.219.r2600.jar"/>
+	<classpathentry kind="lib" path="E:/cr4e_2.0.18/eclipse/plugins/com.businessobjects.crystalreports.designer.grouptree_12.2.219.r2600.jar"/>
+	<classpathentry kind="lib" path="E:/cr4e_2.0.18/eclipse/plugins/com.businessobjects.crystalreports.designer.layout_12.2.219.r2600.jar"/>
+	<classpathentry kind="lib" path="E:/cr4e_2.0.18/eclipse/plugins/com.businessobjects.crystalreports.designer.outlineview_12.2.219.r2600.jar"/>
+	<classpathentry kind="lib" path="E:/cr4e_2.0.18/eclipse/plugins/com.businessobjects.crystalreports.designer.promptingui_12.2.219.r2600.jar"/>
+	<classpathentry kind="lib" path="E:/cr4e_2.0.18/eclipse/plugins/com.businessobjects.crystalreports.designer.propertiesview_12.2.219.r2600.jar"/>
+	<classpathentry kind="lib" path="E:/cr4e_2.0.18/eclipse/plugins/com.businessobjects.crystalreports.designer.reporteditlib_12.2.219.r2600.jar"/>
+	<classpathentry kind="lib" path="E:/cr4e_2.0.18/eclipse/plugins/com.businessobjects.crystalreports.designer.reportviewlib_12.2.219.r2600.jar"/>
+	<classpathentry kind="lib" path="E:/cr4e_2.0.18/eclipse/plugins/com.businessobjects.crystalreports.designer.sdk_12.2.219.r2600.jar"/>
+	<classpathentry kind="lib" path="E:/cr4e_2.0.18/eclipse/plugins/com.businessobjects.crystalreports.designer.searchpanel_12.2.219.r2600.jar"/>
+	<classpathentry kind="lib" path="E:/cr4e_2.0.18/eclipse/plugins/com.businessobjects.crystalreports.designer.uibase_12.2.219.r2600.jar"/>
+	<classpathentry kind="lib" path="E:/cr4e_2.0.18/eclipse/plugins/com.businessobjects.crystalreports.integration.eclipse.crjspeditor_12.2.219.r2600.jar"/>
+	<classpathentry kind="lib" path="E:/cr4e_2.0.18/eclipse/plugins/com.businessobjects.crystalreports.integration.eclipse.facet.shared_12.2.219.r2600.jar"/>
+	<classpathentry kind="lib" path="E:/cr4e_2.0.18/eclipse/plugins/com.businessobjects.crystalreports.integration.eclipse.javaprojectwizard_12.2.219.r2600.jar"/>
+	<classpathentry kind="lib" path="E:/cr4e_2.0.18/eclipse/plugins/com.businessobjects.crystalreports.integration.eclipse.pojo_12.2.219.r2600.jar"/>
+	<classpathentry kind="lib" path="E:/cr4e_2.0.18/eclipse/plugins/com.businessobjects.crystalreports.integration.eclipse.providers.xmlprovider_12.2.219.r2600.jar"/>
+	<classpathentry kind="lib" path="E:/cr4e_2.0.18/eclipse/plugins/com.businessobjects.crystalreports.integration.eclipse_12.2.219.r2600.jar"/>
+	<classpathentry kind="lib" path="E:/cr4e_2.0.18/eclipse/plugins/com.businessobjects.crystalreports.platformext.linux_x86_12.2.219.r2600.jar"/>
+	<classpathentry kind="lib" path="E:/cr4e_2.0.18/eclipse/plugins/com.businessobjects.crystalreports.platformext.win32_12.2.219.r2600.jar"/>
+	<classpathentry kind="lib" path="E:/cr4e_2.0.18/eclipse/plugins/com.businessobjects.designer.crystalreportsforeclipse.doc_12.2.219.r2600.jar"/>
+	<classpathentry kind="lib" path="E:/cr4e_2.0.18/eclipse/plugins/com.businessobjects.developer.crystalreportsforeclipse.doc_12.2.219.r2600.jar"/>
+	<classpathentry kind="lib" path="E:/cr4e_2.0.18/eclipse/plugins/com.businessobjects.developer.sdk.crystalreportsforeclipse.doc_12.2.219.r2600.jar"/>
+	<classpathentry kind="lib" path="E:/cr4e_2.0.18/eclipse/plugins/com.businessobjects.GEFUtilities_12.2.219.r2600.jar"/>
+	<classpathentry kind="lib" path="E:/cr4e_2.0.18/eclipse/plugins/com.businessobjects.integration.eclipse.communitypage_12.2.219.r2600.jar"/>
+	<classpathentry kind="lib" path="E:/cr4e_2.0.18/eclipse/plugins/com.businessobjects.integration.eclipse.crviewer.preferences_12.2.219.r2600.jar"/>
+	<classpathentry kind="lib" path="E:/cr4e_2.0.18/eclipse/plugins/com.businessobjects.integration.eclipse.crystalreports.configure.projects.plugin_12.2.219.r2600.jar"/>
+	<classpathentry kind="lib" path="E:/cr4e_2.0.18/eclipse/plugins/com.businessobjects.integration.eclipse.crystalreports.configure.projects_12.2.219.r2600.jar"/>
+	<classpathentry kind="lib" path="E:/cr4e_2.0.18/eclipse/plugins/com.businessobjects.integration.eclipse.library_12.2.219.r2600.jar"/>
+	<classpathentry kind="lib" path="E:/cr4e_2.0.18/eclipse/plugins/com.businessobjects.integration.eclipse.reporting.ufl.java_12.2.219.r2600.jar"/>
+	<classpathentry kind="lib" path="E:/cr4e_2.0.18/eclipse/plugins/com.businessobjects.integration.eclipse.web.properties_12.2.219.r2600.jar"/>
+	<classpathentry kind="lib" path="E:/cr4e_2.0.18/eclipse/plugins/com.businessobjects.RCPRuntimeUtilities_12.2.219.r2600.jar"/>
+	<classpathentry kind="lib" path="E:/cr4e_2.0.18/eclipse/plugins/com.businessobjects.sdks.crystalreports.viewer.lib_12.2.219.r2600.jar"/>
+	<classpathentry kind="lib" path="E:/cr4e_2.0.18/eclipse/plugins/com.businessobjects.sdks.jrc_12.2.219.r2600.jar"/>
+	<classpathentry kind="lib" path="E:/cr4e_2.0.18/eclipse/plugins/com.businessobjects.sdks.manager_12.2.219.r2600.jar"/>
+	<classpathentry kind="lib" path="E:/cr4e_2.0.18/eclipse/plugins/com.businessobjects.SWTUtilities_12.2.219.r2600.jar"/>
+	<classpathentry kind="lib" path="E:/cr4e_2.0.18/eclipse/plugins/com.businessobjects.ui.controls_12.2.219.r2600.jar"/>
+	<classpathentry kind="lib" path="E:/cr4e_2.0.18/eclipse/plugins/com.businessobjects.WorkbenchUtilities_12.2.219.r2600.jar"/>
+	<classpathentry kind="lib" path="E:/cr4e_2.0.18/eclipse/plugins/com.businessobjects.crystalreports.samples_12.2.219.r2600/SampleDatabases/derby.jar"/>
+	<classpathentry kind="lib" path="E:/cr4e_2.0.18/eclipse/plugins/com.businessobjects.crystalreports.samples_12.2.219.r2600/SampleDatabases/Xtreme.jar"/>
+	<classpathentry kind="lib" path="E:/cr4e_2.0.18/eclipse/plugins/com.businessobjects.crystalreports.crsdk.libs_12.2.219.r2600/lib/com.azalea.ufl.barcode.1.0.jar"/>
+	<classpathentry kind="lib" path="E:/cr4e_2.0.18/eclipse/plugins/com.businessobjects.crystalreports.crsdk.libs_12.2.219.r2600/lib/commons-collections-3.1.jar"/>
+	<classpathentry kind="lib" path="E:/cr4e_2.0.18/eclipse/plugins/com.businessobjects.crystalreports.crsdk.libs_12.2.219.r2600/lib/commons-configuration-1.2.jar"/>
+	<classpathentry kind="lib" path="E:/cr4e_2.0.18/eclipse/plugins/com.businessobjects.crystalreports.crsdk.libs_12.2.219.r2600/lib/commons-lang-2.1.jar"/>
+	<classpathentry kind="lib" path="E:/cr4e_2.0.18/eclipse/plugins/com.businessobjects.crystalreports.crsdk.libs_12.2.219.r2600/lib/commons-logging.jar"/>
+	<classpathentry kind="lib" path="E:/cr4e_2.0.18/eclipse/plugins/com.businessobjects.crystalreports.crsdk.libs_12.2.219.r2600/lib/CrystalCommon2.jar"/>
+	<classpathentry kind="lib" path="E:/cr4e_2.0.18/eclipse/plugins/com.businessobjects.crystalreports.crsdk.libs_12.2.219.r2600/lib/CrystalReportsRuntime.jar"/>
+	<classpathentry kind="lib" path="E:/cr4e_2.0.18/eclipse/plugins/com.businessobjects.crystalreports.crsdk.libs_12.2.219.r2600/lib/cvom.jar"/>
+	<classpathentry kind="lib" path="E:/cr4e_2.0.18/eclipse/plugins/com.businessobjects.crystalreports.crsdk.libs_12.2.219.r2600/lib/jai_imageio.jar"/>
+	<classpathentry kind="lib" path="E:/cr4e_2.0.18/eclipse/plugins/com.businessobjects.crystalreports.crsdk.libs_12.2.219.r2600/lib/JDBInterface.jar"/>
+	<classpathentry kind="lib" path="E:/cr4e_2.0.18/eclipse/plugins/com.businessobjects.crystalreports.crsdk.libs_12.2.219.r2600/lib/keycodeDecoder.jar"/>
+	<classpathentry kind="lib" path="E:/cr4e_2.0.18/eclipse/plugins/com.businessobjects.crystalreports.crsdk.libs_12.2.219.r2600/lib/log4j.jar"/>
+	<classpathentry kind="lib" path="E:/cr4e_2.0.18/eclipse/plugins/com.businessobjects.crystalreports.crsdk.libs_12.2.219.r2600/lib/logging.jar"/>
+	<classpathentry kind="lib" path="E:/cr4e_2.0.18/eclipse/plugins/com.businessobjects.crystalreports.crsdk.libs_12.2.219.r2600/lib/pfjgraphics.jar"/>
+	<classpathentry kind="lib" path="E:/cr4e_2.0.18/eclipse/plugins/com.businessobjects.crystalreports.crsdk.libs_12.2.219.r2600/lib/xpp3.jar"/>
+	<classpathentry kind="con" path="org.eclipse.m2e.MAVEN2_CLASSPATH_CONTAINER">
+		<attributes>
+			<attribute name="maven.pomderived" value="true"/>
+			<attribute name="org.eclipse.jst.component.dependency" value="/WEB-INF/lib"/>
+		</attributes>
+	</classpathentry>
+	<classpathentry kind="lib" path="C:/Users/souvik.p/.m2/repository/com/ibm/icu/icu4j/4.6/icu4j-4.6.jar"/>
+	<classpathentry kind="lib" path="E:/MyJars/DatabaseConnectors.jar"/>
+	<classpathentry kind="lib" path="E:/MyJars/QueryBuilder.jar"/>
+	<classpathentry kind="lib" path="E:/MyJars/XMLConnector.jar"/>
+	<classpathentry kind="lib" path="C:/Users/souvik.p/Documents/workspace-sts-3.8.2.RELEASE/ojdbc14-1.0.jar"/>
+	<classpathentry kind="output" path="target/classes"/>
+</classpath>

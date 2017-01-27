@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<CrystalReportEngine-configuration>
+    <timeout>0</timeout>
+    <ExternalFunctionLibraryClassNames>
+    	<classname>com.crystaldecisions.sdk.occa.report</classname>
+    </ExternalFunctionLibraryClassNames>
+</CrystalReportEngine-configuration>
+

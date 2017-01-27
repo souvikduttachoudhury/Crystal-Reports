@@ -1,0 +1,572 @@
+<?xml version="1.0" encoding="ISO-8859-1" ?>
+<!DOCTYPE taglib
+    PUBLIC "-//Sun Microsystems, Inc.//DTD JSP Tag Library 1.2//EN"
+    "http://java.sun.com/dtd/web-jsptaglibrary_1_2.dtd">
+
+<taglib>
+    <tlib-version>1.0</tlib-version>
+    <jsp-version>1.2</jsp-version>
+    <short-name>crviewer</short-name>
+    <uri>/crystal-tags-reportviewer.tld</uri>
+    <description>
+        This Tag Library allows a JSP page to instantiate a Crystal Report Viewer
+    </description>
+
+    <!--=======================================-->
+    <!--============== ViewerTag ==============-->
+    <!--=======================================-->
+    <tag>
+        <name>viewer</name>
+        <tag-class>com.crystaldecisions.report.web.viewer.taglib.ViewerTag</tag-class>
+        <body-content>JSP</body-content>
+		<description>
+		The viewer tag is the main tag that instantiates the DHTML report page viewer. It creates the DHTML report page viewer and allows you to set properties through supported attributes. Each instance of the viewer tag requires a report tag to specify the report to display. If multiple instances of the viewer will be used on a single HTML page, each instance must have a unique name, specified through the viewerName attribute.
+		</description>
+        <!--=========== Identification ============-->
+        <attribute>
+            <name>viewerName</name>
+            <required>true</required>
+            <rtexprvalue>true</rtexprvalue>
+            <description>
+            Sets the name of the viewer. The name represents the HTML form name that is used to post back requests to the server.When a page has more 	than one viewer, each viewer must be given a unique name; otherwise, a post back in one viewer may be sent to the wrong viewer.
+            </description>
+        </attribute>
+
+        <!--============= Appearance ==============-->
+        <attribute>
+            <name>enablePageToGrow</name>
+            <required>false</required>
+            <rtexprvalue>true</rtexprvalue>
+            <type>boolean</type>
+            <description>
+            Specifies whether the viewer should ignore the height and width attributes and expand to fit the report content.
+            </description>
+        </attribute>
+        <attribute>
+            <name>height</name>
+            <required>false</required>
+            <rtexprvalue>true</rtexprvalue>
+            <description>
+            Sets the height of the viewer in pixels.
+            </description>
+        </attribute>
+        <attribute>
+            <name>width</name>
+            <required>false</required>
+            <rtexprvalue>true</rtexprvalue>
+            <description>
+            Sets the width of the viewer in pixels.
+            </description>
+        </attribute>
+        <attribute>
+            <name>top</name>
+            <required>false</required>
+            <rtexprvalue>true</rtexprvalue>
+            <description>
+            Sets the position of the top-left corner of the viewer on the x-axis.
+            </description>
+        </attribute>
+        <attribute>
+            <name>left</name>
+            <required>false</required>
+            <rtexprvalue>true</rtexprvalue>
+            <description>
+            Sets the position of the top-left corner of the viewer on the y-axis.
+            </description>
+        </attribute>
+        <attribute>
+            <name>displayGroupTree</name>
+            <required>false</required>
+            <rtexprvalue>true</rtexprvalue>
+            <description>
+            Deprecated and replaced by toolPanelViewType.
+            </description>
+        </attribute>
+        <attribute>
+            <name>toolPanelViewType</name>
+            <required>false</required>
+            <rtexprvalue>true</rtexprvalue>
+            <description>
+            Sets whether to show GroupTree, ParameterPanel or None by default in the viewer's tool panel.
+            </description>
+        </attribute>
+        <attribute>
+            <name>documentViewType</name>
+            <required>false</required>
+            <rtexprvalue>true</rtexprvalue>
+            <description>
+            Sets whether to display the document in printLayout or webLayout.
+            </description>
+        </attribute>
+        <attribute>
+            <name>displayPage</name>
+            <required>false</required>
+            <rtexprvalue>true</rtexprvalue>
+            <description>
+            Sets whether to display the report page.
+            </description>
+        </attribute>
+        <attribute>
+            <name>displayToolbar</name>
+            <required>false</required>
+            <rtexprvalue>true</rtexprvalue>
+            <description>
+            Sets whether to display the toolbar.
+            </description>
+        </attribute>
+        <attribute>
+            <name>groupTreeWidth</name>
+            <required>false</required>
+            <rtexprvalue>true</rtexprvalue>
+            <description>
+            Deprecated and replaced by toolPanelWidth.
+            </description>
+        </attribute>
+        <attribute>
+            <name>toolPanelWidth</name>
+            <required>false</required>
+            <rtexprvalue>true</rtexprvalue>
+            <description>
+            Sets the width of the Tool Panel in the units set in toolPanelWidthUnit.
+            </description>
+        </attribute>
+        <attribute>
+            <name>groupTreeWidthUnit</name>
+            <required>false</required>
+            <rtexprvalue>true</rtexprvalue>
+            <description>
+            Deprecated and replaced by toolPanelWidthUnit.
+            </description>
+        </attribute>
+        <attribute>
+            <name>toolPanelWidthUnit</name>
+            <required>false</required>
+            <rtexprvalue>true</rtexprvalue>
+            <description>
+            Sets whether to use pixels or percentage to determine the width of the Tool Panel.
+            </description>
+        </attribute>
+        <attribute>
+            <name>zoomPercentage</name>
+            <required>false</required>
+            <rtexprvalue>true</rtexprvalue>
+            <description>
+            Sets the zoom percentage used when displaying the report.
+            </description>
+        </attribute>
+        <attribute>
+            <name>styleSheet</name>
+            <required>false</required>
+            <rtexprvalue>true</rtexprvalue>
+            <description>
+            Sets the style sheet that is used to display the report content.
+            </description>
+        </attribute>
+
+        <!--============== Behavior ===============-->
+        <attribute>
+            <name>printMode</name>
+            <required>false</required>
+            <rtexprvalue>true</rtexprvalue>
+            <description>
+            Sets whether to print using PDF or ActiveX print mode when the user clicks the print button.
+            </description>
+        </attribute>
+        <attribute>
+            <name>allowDatabaseLogonPrompting</name>
+            <required>false</required>
+            <rtexprvalue>true</rtexprvalue>
+            <description>
+            Enables the option to prompt the user to log on to the database before running the report.
+            </description>
+        </attribute>
+        <attribute>
+            <name>allowDrillDown</name>
+            <required>false</required>
+            <rtexprvalue>true</rtexprvalue>
+            <description>
+            Sets whether to allow users to drill down on the report.
+            </description>
+        </attribute>
+        <attribute>
+            <name>allowParameterPrompting</name>
+            <required>false</required>
+            <rtexprvalue>true</rtexprvalue>
+            <description>
+            Enables the option to prompt the user for parameters to use when running the report.
+            </description>
+        </attribute>
+        <attribute>
+            <name>hyperlinkTarget</name>
+            <required>false</required>
+            <rtexprvalue>true</rtexprvalue>
+            <description>
+            Sets the window or frame to display hyperlinked documents.
+            </description>
+        </attribute>
+        <attribute>
+            <name>isOwnPage</name>
+            <required>false</required>
+            <rtexprvalue>true</rtexprvalue>
+            <description>
+            Sets whether the viewer control owns the page.
+            </description>
+        </attribute>
+        <attribute>
+            <name>productLocale</name>
+            <required>false</required>
+            <rtexprvalue>true</rtexprvalue>
+            <description>
+            Defines the locale setting used to display all text and formatting generated by the viewer (such as the toolbar).
+            </description>
+        </attribute>
+
+        <!--============== Toolbar ================-->
+        <attribute>
+            <name>displayToolbarViewList</name>
+            <required>false</required>
+            <rtexprvalue>true</rtexprvalue>
+            <description>
+            Deprecated and replaced by displayDrilldownTabs.
+            </description>
+        </attribute>
+        <attribute>
+            <name>displayDrilldownTabs</name>
+            <required>false</required>
+            <rtexprvalue>true</rtexprvalue>
+            <description>
+            Sets whether to display drilldown tabs.
+            </description>
+        </attribute>
+        <attribute>
+            <name>displayToolbarExportButton</name>
+            <required>false</required>
+            <rtexprvalue>true</rtexprvalue>
+            <description>
+            Sets whether to display the Export button on the toolbar.
+            </description>
+        </attribute>
+        <attribute>
+            <name>displayToolbarFindPageButton</name>
+            <required>false</required>
+            <rtexprvalue>true</rtexprvalue>
+            <description>
+            Sets whether to display the Go To Page button on the toolbar.
+            </description>
+		</attribute>
+        <attribute>
+            <name>displayToolbarPageNavigationButtons</name>
+            <required>false</required>
+            <rtexprvalue>true</rtexprvalue>
+            <description>
+            Sets whether to display the page navigation buttons on the toolbar.
+            </description>
+        </attribute>
+        <attribute>
+            <name>displayToolbarPrintButton</name>
+            <required>false</required>
+            <rtexprvalue>true</rtexprvalue>
+            <description>
+            Sets whether to display the Print button on the toolbar.
+            </description>
+        </attribute>
+        <attribute>
+            <name>displayToolbarRefreshButton</name>
+            <required>false</required>
+            <rtexprvalue>true</rtexprvalue>
+            <description>
+            Sets whether to display the Refresh button on the toolbar.
+            </description>
+        </attribute>
+        <attribute>
+            <name>displayToolbarFindButton</name>
+            <required>false</required>
+            <rtexprvalue>true</rtexprvalue>
+            <description>
+            Sets whether to display the Search button on the toolbar.
+            </description>
+        </attribute>
+        <attribute>
+            <name>displayToolbarToggleTreeButton</name>
+            <required>false</required>
+            <rtexprvalue>true</rtexprvalue>
+            <description>
+            Sets whether to display the Group Tree toggle button on the toolbar.
+            </description>
+        </attribute>
+        <attribute>
+            <name>displayToolbarToggleParameterPanelButton</name>
+            <required>false</required>
+            <rtexprvalue>true</rtexprvalue>
+            <description>
+            Indicates whether to display the toggle Parameter Panel button on the toolbar.
+            </description>
+        </attribute>
+        <attribute>
+            <name>displayToolbarZoomList</name>
+            <required>false</required>
+            <rtexprvalue>true</rtexprvalue>
+            <description>
+            Sets whether to display a zoom percentage drop down list on the toolbar.
+            </description>
+        </attribute>
+        <attribute>
+            <name>displayToolbarCrystalLogo</name>
+            <required>false</required>
+            <rtexprvalue>true</rtexprvalue>
+            <description>
+            Sets whether to display the Business Objects logo on the toolbar.
+            </description>
+        </attribute>
+
+        <!--=========== Report Source =============-->
+        <attribute>
+            <name>reportSourceType</name>
+            <required>true</required>
+            <rtexprvalue>true</rtexprvalue>
+            <description>
+            Specifies the type of report source the viewer will use.
+            </description>
+        </attribute>
+        <attribute>
+            <name>reportSourceVar</name>
+            <required>false</required>
+            <rtexprvalue>true</rtexprvalue>
+            <description>
+            Sets the name of the variable where the report source will be cached.
+            </description>
+        </attribute>
+    </tag>
+
+    <!--=======================================-->
+    <!--============ PartsViewerTag ===========-->
+    <!--=======================================-->
+    <tag>
+        <name>partsViewer</name>
+        <tag-class>com.crystaldecisions.report.web.viewer.taglib.PartsViewerTag</tag-class>
+        <body-content>JSP</body-content>
+		<description>
+		The partsViewer tag is the main tag that instantiates the report parts viewer. It creates the report parts viewer and allows you to set properties through supported attributes. Each instance of the partsViewer tag requires a report tag to specify the report to display. If multiple instances of the report parts viewer will be used on a single HTML page, each instance must have a unique name, specified through the viewerName attribute.
+		</description>
+        <!--=========== Identification ============-->
+        <attribute>
+            <name>viewerName</name>
+            <required>true</required>
+            <rtexprvalue>true</rtexprvalue>
+            <description>
+            Sets the name of the report parts viewer.
+            </description>
+        </attribute>
+
+        <!--============= Appearance ==============-->
+        <attribute>
+            <name>height</name>
+            <required>false</required>
+            <rtexprvalue>true</rtexprvalue>
+            <description>
+            Sets the height of the report parts viewer in pixels.
+            </description>
+        </attribute>
+        <attribute>
+            <name>width</name>
+            <required>false</required>
+            <rtexprvalue>true</rtexprvalue>
+            <description>
+            Sets the width of the report parts viewer in pixels.
+            </description>
+        </attribute>
+        <attribute>
+            <name>top</name>
+            <required>false</required>
+            <rtexprvalue>true</rtexprvalue>
+            <description>
+            Sets the position of the top-left corner of the viewer on the y-axis.
+            </description>
+        </attribute>
+        <attribute>
+            <name>left</name>
+            <required>false</required>
+            <rtexprvalue>true</rtexprvalue>
+            <description>
+ 			Sets the position of the top-left corner of the viewer on the x-axis.
+            </description>
+        </attribute>
+        <attribute>
+            <name>rotateSections</name>
+            <required>false</required>
+            <rtexprvalue>true</rtexprvalue>
+            <description>
+            Sets whether the viewer will rotate sections (that is, convert columns to rows or convert rows to columns).
+            </description>
+        </attribute>
+        <attribute>
+            <name>title</name>
+            <required>false</required>
+            <rtexprvalue>true</rtexprvalue>
+            <description>
+            Sets the title displayed at the top of the viewer.
+            </description>
+        </attribute>
+        <attribute>
+            <name>preserveLayout</name>
+            <required>false</required>
+            <rtexprvalue>true</rtexprvalue>
+            <description>
+            Sets whether the page layout is preserved when rendering the report parts.
+            </description>
+        </attribute>
+        <attribute>
+            <name>numberOfRecords</name>
+            <required>false</required>
+            <rtexprvalue>true</rtexprvalue>
+            <description>
+            Sets the number of records to display on a page.
+            </description>
+        </attribute>
+        <attribute>
+            <name>showHeadings</name>
+            <required>false</required>
+            <rtexprvalue>true</rtexprvalue>
+            <description>
+            Sets whether the viewer will display report object names
+            </description>
+        </attribute>
+        <attribute>
+            <name>showPageNavigationLinks</name>
+            <required>false</required>
+            <rtexprvalue>true</rtexprvalue>
+            <description>
+            Sets whether page navigation links are included when rendering the report parts viewer.
+            </description>
+        </attribute>
+        <attribute>
+            <name>border</name>
+            <required>false</required>
+            <rtexprvalue>true</rtexprvalue>
+            <description>
+            Sets whether a border is included when rendering the report parts viewer.
+            </description>
+        </attribute>
+        <attribute>
+            <name>zoomPercentage</name>
+            <required>false</required>
+            <rtexprvalue>true</rtexprvalue>
+            <description>
+            Sets the zoom factor that is used to display the report.
+            </description>
+        </attribute>
+        <attribute>
+            <name>styleSheet</name>
+            <required>false</required>
+            <rtexprvalue>true</rtexprvalue>
+            <description>
+            Sets the style sheet that used to display the report content.
+            </description>
+        </attribute>
+
+        <!--============== Behavior ===============-->
+        <attribute>
+            <name>allowDatabaseLogonPrompting</name>
+            <required>false</required>
+            <rtexprvalue>true</rtexprvalue>
+            <description>
+            Enables the option to prompt the user to log on to the database before running the report.
+            </description>
+        </attribute>
+        <attribute>
+            <name>allowDrillDown</name>
+            <required>false</required>
+            <rtexprvalue>true</rtexprvalue>
+            <description>
+            Sets whether to allow users to drill down on the report.
+            </description>
+        </attribute>
+        <attribute>
+            <name>allowParameterPrompting</name>
+            <required>false</required>
+            <rtexprvalue>true</rtexprvalue>
+            <description>
+            Enables the option to prompt the user for parameters to use when running the report.
+            </description>
+        </attribute>
+        <attribute>
+            <name>hyperlinkTarget</name>
+            <required>false</required>
+            <rtexprvalue>true</rtexprvalue>
+            <description>
+            Sets the window or frame to display hyperlinked documents.
+            </description>
+        </attribute>
+        <attribute>
+            <name>isOwnPage</name>
+            <required>false</required>
+            <rtexprvalue>true</rtexprvalue>
+            <description>
+            Sets whether the report parts viewer owns the page.
+            </description>
+        </attribute>
+        <attribute>
+            <name>productLocale</name>
+            <required>false</required>
+            <rtexprvalue>true</rtexprvalue>
+            <description>
+            Defines the locale setting used to display all text and formatting generated by the viewer.
+            </description>
+        </attribute>
+        <attribute>
+            <name>enableImageForMobileDevices</name>
+            <required>false</required>
+            <rtexprvalue>true</rtexprvalue>
+            <description>
+            Deprecated. No replacement.
+            </description>
+        </attribute>
+        <attribute>
+            <name>mobileDevicesCharset</name>
+            <required>false</required>
+            <rtexprvalue>true</rtexprvalue>
+            <description>
+            Deprecated. No replacement. Calling this method has no effect.
+            </description>
+        </attribute>
+
+        <!--=========== Report Source =============-->
+        <attribute>
+            <name>reportSourceType</name>
+            <required>true</required>
+            <rtexprvalue>true</rtexprvalue>
+            <description>
+            Specifies the type of report source the report parts viewer will use.
+            </description>
+        </attribute>
+        <attribute>
+            <name>reportSourceVar</name>
+            <required>false</required>
+            <rtexprvalue>true</rtexprvalue>
+            <description>
+            Sets the name of the variable where the report source will be cached.
+            </description>
+        </attribute>
+    </tag>
+
+    <!--=======================================-->
+    <!--============== ReportTag ==============-->
+    <!--=======================================-->
+    <tag>
+        <name>report</name>
+        <tag-class>com.crystaldecisions.report.web.viewer.taglib.ReportTag</tag-class>
+        <body-content>JSP</body-content>
+        <description>
+        The report tag specifies the report that is displayed by the viewer. It is required by the viewer tag, unless you are using a manually cached report source.
+        </description>
+        <attribute>
+            <name>reportName</name>
+            <required>true</required>
+            <rtexprvalue>true</rtexprvalue>
+            <description>
+            Sets the name of the report to display when an unmanaged report source is used.
+            </description>
+        </attribute>
+    </tag>
+
+</taglib>
