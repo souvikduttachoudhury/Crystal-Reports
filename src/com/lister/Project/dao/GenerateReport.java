@@ -6,6 +6,8 @@ import java.io.File;
 import java.io.FileNotFoundException;
 import java.io.FileOutputStream;
 import java.io.IOException;
+import java.text.SimpleDateFormat;
+import java.util.Date;
 
 import com.businessobjects.samples.CRJavaHelper;
 import com.crystaldecisions.sdk.occa.report.application.ReportClientDocument;
@@ -23,7 +25,7 @@ public class GenerateReport {
 	 * @throws ReportSDKException
 	 * @throws IOException
 	 */
-	public void generate() throws ReportSDKException, IOException{
+	public boolean generate() throws ReportSDKException, IOException{
 		ReportClientDocument rcd=new ReportClientDocument();
 	    rcd.open("D://Report Templates/sample1.rpt", 0);
 	    CRJavaHelper crj=new CRJavaHelper();
@@ -35,14 +37,28 @@ public class GenerateReport {
 	    ByteArrayInputStream bais=(ByteArrayInputStream)rcd.getPrintOutputController().export(ReportExportFormat.PDF);
 	    System.out.println("File loaded succesfully");
 	    rcd.close();
-		File file = new File("D://GeneratedReports/Employee.pdf");
-	    FileOutputStream fileOutputStream = new FileOutputStream(file);
-	    ByteArrayOutputStream byteArrayOutputStream = new ByteArrayOutputStream(bais.available());
-	    byte[] byteArray=new byte[bais.available()];
-		int x = bais.read(byteArray, 0, bais.available());
-	    byteArrayOutputStream.write(byteArray, 0, x);
-	    byteArrayOutputStream.writeTo(fileOutputStream);
-	    fileOutputStream.close();
-	    System.out.println("File exported succesfully");
+	    try{
+	    	Date d=new Date();
+	    	//String currentDate=Integer.toString(d.getDate())+Integer.toString(d.getMonth())+Integer.toString(d.)+"_"+Integer.toString(d.getHours())+":"+Integer.toString(d.getMinutes())+":"+Integer.toString(d.getSeconds());
+	    	String currentDate=new SimpleDateFormat("dd_MM_yyyy_hh_mm_ss'.pdf'").format(new Date());
+	    	System.out.println(currentDate);
+	    	String fname="Employee"+"_"+currentDate;
+	    	String directory="D://GeneratedReports";
+	    	String path=directory+"/"+fname;
+			File file = new File(path);
+		    FileOutputStream fileOutputStream = new FileOutputStream(file);
+		    ByteArrayOutputStream byteArrayOutputStream = new ByteArrayOutputStream(bais.available());
+		    byte[] byteArray=new byte[bais.available()];
+			int x = bais.read(byteArray, 0, bais.available());
+		    byteArrayOutputStream.write(byteArray, 0, x);
+		    byteArrayOutputStream.writeTo(fileOutputStream);
+		    fileOutputStream.close();
+		    System.out.println("File exported succesfully");
+		    return true;
+	    }
+	    catch(FileNotFoundException fnfe){
+	    	fnfe.printStackTrace();
+	    	return false;
+	    }
 	}
 }

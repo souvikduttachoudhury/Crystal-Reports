@@ -39,8 +39,8 @@ public class EmployeeService {
 	public List<Employee> getEmployeeList(String name){
 	    return empdao.getEmployeeByName(name);
 	}
-	public void generate() throws ReportSDKException, IOException{
+	public boolean generate() throws ReportSDKException, IOException{
 		gr=new GenerateReport();
-		gr.generate();
+		return gr.generate();
 	}
 }

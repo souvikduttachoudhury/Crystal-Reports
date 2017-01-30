@@ -29,7 +29,8 @@
 	</c:forEach>
 	</table>
 	<form name="Generate_Report" action="generate" method="post">
-				<button  type="submit">Publish Report</button>
+				<button  type="submit">Publish Report</button><br/>
+				<div id="msg" style="color:red">${message}</div>
 	</form>
 </body>
 </html>
