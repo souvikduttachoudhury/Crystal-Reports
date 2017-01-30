@@ -8,12 +8,16 @@
 <title>Insert title here</title>
 </head>
 <body>
+	<div class="wrapper" style="margin-left:30%;margin-top:1%">
+	<h2>&nbsp;&nbsp;&nbsp;&nbsp;List of Employees</h2>
 	<table style="left:33%;top:33%;border-spacing:8px">
+    <thead>
 	<tr>
 			<td>ID</td>
 			<td>Name</td>
 			<td>Salary</td>
 	</tr>
+	</thead>
 	<c:forEach items="${Employees}" var="employee">
 		<tr>
 			<td>${employee.id}</td>
@@ -32,5 +36,6 @@
 				<button  type="submit">Publish Report</button><br/>
 				<div id="msg" style="color:red">${message}</div>
 	</form>
+	</div>
 </body>
 </html>

@@ -13,9 +13,14 @@
 </script>
 </head>
 <body>
+<div class="wrapper" style="margin-left:30%;margin-top:1%">
+<h2>&nbsp;&nbsp;&nbsp;&nbsp;Generated Reports</h2>
 <table>
+<c:set var="serial" scope="session" value="${0}"/>
     <c:forEach items="${reports}" var="report">
 		<tr>
+		    <c:set var="serial" scope="session" value="${serial+1}"/>
+			<td><c:out value="${serial}"/></td>
 			<td style="padding:20px">${report}</td>
 			<td>
 				<a href="#" onclick="down('${report}')">Download</a>
@@ -23,5 +28,6 @@
 		</tr>
 	</c:forEach>
 	</table>
+</div>	
 </body>
 </html>
