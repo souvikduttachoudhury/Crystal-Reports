@@ -25,9 +25,18 @@ import com.crystaldecisions.sdk.occa.report.lib.ReportSDKException;
 import com.lister.Project.domain.Employee;
 import com.lister.Project.service.EmployeeService;
 
+/**
+ * @author souvik.p
+ *
+ */
 @Controller
 public class EmployeeController {
 	
+	/**
+	 * @param emp
+	 * @param model
+	 * @return
+	 */
 	@RequestMapping("/save")
 	public String show(@ModelAttribute Employee emp,Map<String,Object> model){
 		EmployeeService es=new EmployeeService();
@@ -37,6 +46,11 @@ public class EmployeeController {
 		return "employeedtls";
 	}
 	
+	/**
+	 * @param id
+	 * @param model
+	 * @return
+	 */
 	@RequestMapping("/delete")
 	public String remove(@RequestParam  int id,Map<String,Object> model){
 		EmployeeService es=new EmployeeService();
@@ -46,7 +60,13 @@ public class EmployeeController {
 		return "employeedtls";
 	}
 	
-	@RequestMapping("generate")
+	/**
+	 * @param model
+	 * @return
+	 * @throws ReportSDKException
+	 * @throws IOException
+	 */
+	@RequestMapping("/generate")
 	public String generate(Model model) throws ReportSDKException, IOException{
 		EmployeeService es=new EmployeeService();
 		if(es.generate()){

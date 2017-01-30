@@ -21,10 +21,20 @@ import org.springframework.web.bind.annotation.ResponseBody;
 import com.crystaldecisions.sdk.occa.report.lib.ReportSDKException;
 import com.lister.Project.domain.Employee;
 
+/**
+ * @author souvik.p
+ *
+ */
 @Controller
 public class HomeController {
 	//DataSource dataSource;
 	
+	/**
+	 * @param model
+	 * @return
+	 * @throws ReportSDKException
+	 * @throws IOException
+	 */
 	@RequestMapping(value="/")
 	public String Hello(Model model) throws ReportSDKException, IOException{
 		Employee e=new Employee();

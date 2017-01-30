@@ -15,6 +15,10 @@ import com.lister.Project.dao.EmployeeDao;
 import com.lister.Project.dao.GenerateReport;
 import com.lister.Project.domain.Employee;
 
+/**
+ * @author souvik.p
+ *
+ */
 public class EmployeeService {
 	EmployeeDao empdao;
 	Resource r;
@@ -27,18 +31,36 @@ public class EmployeeService {
 	    empdao=(EmployeeDao)factory.getBean("d");
 	    //configuration.configure("DefaultServlet-servlet.xml");
 	}
+	/**
+	 * @param emp
+	 */
 	public void addemployee(Employee emp){
 		empdao.saveEmployee(emp);
 	}
+	/**
+	 * @param id
+	 */
 	public void removeEmployeeByID(int id){
 		empdao.deleteEmployee(empdao.getById(id));
 	}
+	/**
+	 * @return
+	 */
 	public List<Employee> getEmployeeList(){
 	    return empdao.getEmployees();
 	}
+	/**
+	 * @param name
+	 * @return
+	 */
 	public List<Employee> getEmployeeList(String name){
 	    return empdao.getEmployeeByName(name);
 	}
+	/**
+	 * @return
+	 * @throws ReportSDKException
+	 * @throws IOException
+	 */
 	public boolean generate() throws ReportSDKException, IOException{
 		gr=new GenerateReport();
 		return gr.generate();

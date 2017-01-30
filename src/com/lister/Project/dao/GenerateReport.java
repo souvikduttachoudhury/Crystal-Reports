@@ -14,6 +14,10 @@ import com.crystaldecisions.sdk.occa.report.application.ReportClientDocument;
 import com.crystaldecisions.sdk.occa.report.exportoptions.ReportExportFormat;
 import com.crystaldecisions.sdk.occa.report.lib.ReportSDKException;
 
+/**
+ * @author souvik.p
+ *
+ */
 public class GenerateReport {
 	private static final String db_user="system";
 	private static final String db_pwd="kroger";
@@ -22,6 +26,7 @@ public class GenerateReport {
 	
 	
 	/**
+	 * @return
 	 * @throws ReportSDKException
 	 * @throws IOException
 	 */

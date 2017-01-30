@@ -14,10 +14,20 @@ import org.springframework.web.bind.annotation.RequestMapping;
 
 import com.crystaldecisions.sdk.occa.report.lib.ReportSDKException;
 
+/**
+ * @author souvik.p
+ *
+ */
 @Controller
 @RequestMapping("/dwld")
 public class ReportController {
 	
+	/**
+	 * @param response
+	 * @param fname
+	 * @throws ReportSDKException
+	 * @throws IOException
+	 */
 	@RequestMapping(value="/{fname}")
 	public void Download(HttpServletResponse response,@PathVariable(value="fname") String fname) throws ReportSDKException, IOException{
 		//String delimiter="\"";

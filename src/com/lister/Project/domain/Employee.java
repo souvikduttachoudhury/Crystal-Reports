@@ -9,6 +9,10 @@ import javax.persistence.NamedQuery;
 import javax.persistence.Table;
 import static javax.persistence.GenerationType.SEQUENCE;
 
+/**
+ * @author souvik.p
+ *
+ */
 @NamedQueries({
 	  @NamedQuery(name="findEmployeeByName",query="from Employee e where e.name= :name"),
 	  @NamedQuery(name="deleteEmployeeByID",query="delete from Employee e where e.id= :id")
