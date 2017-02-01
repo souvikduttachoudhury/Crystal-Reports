@@ -9,6 +9,9 @@ import java.io.IOException;
 import java.text.SimpleDateFormat;
 import java.util.Date;
 
+import org.apache.log4j.Logger;
+import org.apache.log4j.spi.LoggerFactory;
+
 import com.businessobjects.samples.CRJavaHelper;
 import com.crystaldecisions.sdk.occa.report.application.ReportClientDocument;
 import com.crystaldecisions.sdk.occa.report.exportoptions.ReportExportFormat;
@@ -23,7 +26,7 @@ public class GenerateReport {
 	private static final String db_pwd="kroger";
 	private static final String db_url="jdbc:oracle:thin:@localhost:1521:xe";
 	private static final String db_driver="oracle.jdbc.driver.OracleDriver";
-	
+	//private static final Logger logger=;
 	
 	/**
 	 * @return
@@ -45,7 +48,7 @@ public class GenerateReport {
 	    try{
 	    	Date d=new Date();
 	    	//String currentDate=Integer.toString(d.getDate())+Integer.toString(d.getMonth())+Integer.toString(d.)+"_"+Integer.toString(d.getHours())+":"+Integer.toString(d.getMinutes())+":"+Integer.toString(d.getSeconds());
-	    	String currentDate=new SimpleDateFormat("dd_MM_yyyy_hh_mm_ss'.pdf'").format(new Date());
+	    	String currentDate=new SimpleDateFormat("dd_MM_yyyy_hh_mm_ss_a'.pdf'").format(new Date());
 	    	System.out.println(currentDate);
 	    	String fname="Employee"+"_"+currentDate;
 	    	String directory="D://GeneratedReports";

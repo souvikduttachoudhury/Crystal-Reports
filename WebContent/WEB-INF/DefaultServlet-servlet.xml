@@ -46,7 +46,12 @@ http://www.springframework.org/schema/mvc/spring-mvc-4.0.xsd">
         </property>
         <property name="annotatedClasses" value="com.lister.Project.domain.Employee">
 	   </property>  
-    </bean>    
+    </bean>  
+    
+    <bean id="transactionManager" class="org.springframework.orm.hibernate3.HibernateTransactionManager">
+        <property name="sessionFactory" ref="mysessionFactory" />
+    </bean>
+      
     <bean id="template" class="org.springframework.orm.hibernate3.HibernateTemplate">  
     <property name="sessionFactory" ref="mysessionFactory"></property>  
     </bean>  
@@ -54,4 +59,5 @@ http://www.springframework.org/schema/mvc/spring-mvc-4.0.xsd">
     <bean id="d" class="com.lister.Project.dao.EmployeeDao">  
     <property name="template" ref="template"></property>  
     </bean> 
+    
 </beans>

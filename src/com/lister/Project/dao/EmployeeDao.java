@@ -1,11 +1,13 @@
 package com.lister.Project.dao;
 
+import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.List;
 
-
-
+import org.hibernate.HibernateException;
+import org.hibernate.Session;
 import org.springframework.orm.hibernate3.HibernateTemplate;
+import org.springframework.transaction.annotation.Transactional;
 
 import com.lister.Project.domain.Employee;
 
@@ -19,6 +21,7 @@ public class EmployeeDao {
 	/**
 	 * @param template
 	 */
+	
 	public void setTemplate(HibernateTemplate template) {  
 	    this.template = template;  
 	}  
@@ -26,6 +29,7 @@ public class EmployeeDao {
 	/**
 	 * @param e
 	 */
+	@Transactional
 	public void saveEmployee(Employee e){  
 	    template.save(e);  
 	}  
@@ -40,6 +44,7 @@ public class EmployeeDao {
 	/**
 	 * @param e
 	 */
+	@Transactional
 	public void deleteEmployee(Employee e){  
 	    template.delete(e);  
 	}  
@@ -73,12 +78,13 @@ public class EmployeeDao {
 		param[0]="name";
 		//param[1]="salary";
 		val[0]=name;
-		//int sal=(int)salary;
-		//System.out.println(sal);
-		//val[1]=salary;
 		System.out.println(name);
 		list=template.findByNamedQueryAndNamedParam("findEmployeeByName","name",name);
 		//list=template.findByNamedQueryAndNamedParam("findEmployeesAboveSal", param, val);
 		return list;
+	}
+	
+	public void rollback() throws HibernateException, SQLException{
+		Session session=template.getSessionFactory().getCurrentSession();
 	}
 }

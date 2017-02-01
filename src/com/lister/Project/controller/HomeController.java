@@ -12,6 +12,7 @@ import java.nio.file.Paths;
 import javax.servlet.http.HttpServletResponse;
 import javax.sql.DataSource;
 
+import org.springframework.stereotype.Component;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.PathVariable;
@@ -25,6 +26,7 @@ import com.lister.Project.domain.Employee;
  * @author souvik.p
  *
  */
+@Component
 @Controller
 public class HomeController {
 	//DataSource dataSource;
