@@ -30,7 +30,8 @@ http://www.springframework.org/schema/mvc/spring-mvc-4.0.xsd">
         <property name="driverClassName"  value="oracle.jdbc.driver.OracleDriver"></property>  
         <property name="url" value="jdbc:oracle:thin:@localhost:1521:xe"></property>  
         <property name="username" value="system"></property>  
-        <property name="password" value="kroger"></property>  
+        <property name="password" value="kroger"></property>
+        <property name="defaultAutoCommit" value="false" />  
     </bean>
     
     <bean id="mysessionFactory"  class="org.springframework.orm.hibernate3.annotation.AnnotationSessionFactoryBean">  
@@ -47,7 +48,6 @@ http://www.springframework.org/schema/mvc/spring-mvc-4.0.xsd">
         <property name="annotatedClasses" value="com.lister.Project.domain.Employee">
 	   </property>  
     </bean>  
-    
     <bean id="transactionManager" class="org.springframework.orm.hibernate3.HibernateTransactionManager">
         <property name="sessionFactory" ref="mysessionFactory" />
     </bean>

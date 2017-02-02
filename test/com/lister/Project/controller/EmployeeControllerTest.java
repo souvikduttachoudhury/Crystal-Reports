@@ -4,10 +4,13 @@ import static org.springframework.test.web.servlet.request.MockMvcRequestBuilder
 import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.get;
 import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.post;
 import static org.springframework.test.web.servlet.result.MockMvcResultHandlers.print;
+import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.model;
 import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.status;
 import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.view;
 
+import java.io.File;
 import java.io.IOException;
+import java.util.Arrays;
 import java.util.Map;
 import java.util.Properties;
 
@@ -42,6 +45,8 @@ import org.springframework.test.context.transaction.TransactionConfiguration;
 import org.springframework.test.context.web.WebAppConfiguration;
 import org.springframework.test.web.servlet.MockMvc;
 import org.springframework.test.web.servlet.MockMvcBuilder;
+import org.springframework.test.web.servlet.MvcResult;
+import org.springframework.test.web.servlet.ResultActions;
 import org.springframework.test.web.servlet.setup.MockMvcBuilders;
 import org.springframework.test.web.servlet.setup.StandaloneMockMvcBuilder;
 import org.springframework.transaction.annotation.Transactional;
@@ -63,11 +68,13 @@ import com.lister.Project.service.EmployeeService;
 @SuppressWarnings("unused")
 //@RunWith(MockitoJUnitRunner.class)
 @RunWith(SpringJUnit4ClassRunner.class)
-@ContextConfiguration(locations={"classpath*:testconfig.xml"})
-@TransactionConfiguration(transactionManager="transactionManager", defaultRollback=false)
+@ContextConfiguration(locations={"classpath*:testconfig.xml","classpath*:DefaultServlet-servlet.xml"})
+@TransactionConfiguration(transactionManager="transactionManager", defaultRollback=true)
 @Transactional
 public class EmployeeControllerTest {
 	    private MockMvc mockMvc;
+	    private int initialReportCount;
+	    private File directory;
 	    
 	    private EmployeeDaoTest empdaotest;
 		private Resource r;
@@ -83,8 +90,8 @@ public class EmployeeControllerTest {
 	    EmployeeController object;
 	    
 	    
-	    @Mock
-	    Map<String,Object> model;
+	   // @Mock
+	   // Map<String,Object> model;
 	    
 	    @InjectMocks
 	    Employee emp;
@@ -97,6 +104,7 @@ public class EmployeeControllerTest {
 		}
 	    
 	    @Before
+	    @Rollback(false)
 		public void setup() throws Exception{
 			
 			MockitoAnnotations.initMocks(this);
@@ -105,40 +113,69 @@ public class EmployeeControllerTest {
 			r=new ClassPathResource("testconfig.xml");  	
 		    factory=new XmlBeanFactory(r);  
 		    empdaotest=(EmployeeDaoTest)factory.getBean("d");
+		    
+		    
+		    directory=new File("D://GeneratedReports");
+		    initialReportCount=directory.listFiles().length;
+		    
+		    
 		}
 	    
 	    @After
-		public void afterTest() throws ReportSDKException, IOException{
-			System.out.println("Testing completed");
+		public void cleanUp() throws ReportSDKException, IOException{
+			
+	    	System.out.println("Testing completed");
 		}
+	    
 	    
 	    
 	    @SuppressWarnings("deprecation")
 		@Test
+		@Transactional
 	    @Rollback(true)
 		public void testSaveEmployee() throws Exception {
-			emp.setName("Ramaya");
+			emp.setName("Rohan");
 			emp.setSalary(45000);
 			object.es=new EmployeeService();
 			this.mockMvc.perform(post("/save").param("name", emp.getName()).param("salary", Float.toString(emp.getSalary())))
 				.andExpect(status().isOk())
 				.andExpect(view().name("employeedtls"))
 				.andDo(print());	
-			Assert.assertEquals(45000, empdaotest.getEmployeeByName("Ramaya").get(0).getSalary(),0.001);
+			Assert.assertEquals(45000, empdaotest.getEmployeeByName("Rohan").get(0).getSalary(),0.001);
 		}
 	    
+	    
+	    
+	    
 	    @Test
+	    @Transactional
 	    @Rollback(true)
 		public void testDeleteEmployee() throws Exception {
 	    	object.es=new EmployeeService();
-	    	System.out.println(empdaotest.getEmployeeByName("Ramaya").get(0).getId());
-			this.mockMvc.perform(post("/delete").param("id", Integer.toString(empdaotest.getEmployeeByName("Ramaya").get(0).getId())))
+			this.mockMvc.perform(post("/delete").param("id", Integer.toString(empdaotest.getEmployeeByName("Rohan").get(0).getId())))
 			.andExpect(status().isOk())
 			.andExpect(view().name("employeedtls"))
 			.andDo(print());
-			
 			Assert.assertEquals(null, empdaotest.getById(emp.getId()));
-			
+	    }
+	    
+	    
+	    @Test
+	    public void checkReport() throws Exception{
+	    	object.es=new EmployeeService();
+	    	ResultActions rac=this.mockMvc.perform(get("/generate"))
+	    	.andExpect(status().isOk())
+	    	.andExpect(view().name("reportlist"))
+	    	.andExpect(model().attributeExists("reports"));
+	    	//.andExpect(model().attributeHasNoErrors("reports"));
+	    	Assert.assertEquals(initialReportCount+1, directory.listFiles().length);
+	    	//System.out.println(rac.andReturn().getResponse().getContentAsString());
+	    	if(initialReportCount==(directory.listFiles().length-1)){
+		    	File files[]=directory.listFiles();
+		    	Arrays.sort(files, (a, b) -> Long.compare(a.lastModified(), b.lastModified()));
+		        File removable=files[files.length-1];
+		        removable.delete();
+	    	}
 	    }
 	    
 }

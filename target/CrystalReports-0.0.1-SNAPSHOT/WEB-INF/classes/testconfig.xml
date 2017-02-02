@@ -9,7 +9,8 @@ http://www.springframework.org/schema/beans/spring-beans.xsd
 http://www.springframework.org/schema/context
 http://www.springframework.org/schema/context/spring-context-4.0.xsd
 http://www.springframework.org/schema/mvc
-http://www.springframework.org/schema/mvc/spring-mvc-4.0.xsd">
+http://www.springframework.org/schema/mvc/spring-mvc-4.0.xsd
+http://www.springframework.org/schema/tx http://www.springframework.org/schema/tx/spring-tx-2.5.xsd">
 <mvc:annotation-driven />
 <context:component-scan base-package="com.lister.Project.controller,com.lister.Project.domain,com.lister.Project.service,com.lister.Project.dao"/>
 <bean class="org.springframework.web.servlet.view.InternalResourceViewResolver">
@@ -32,6 +33,7 @@ http://www.springframework.org/schema/mvc/spring-mvc-4.0.xsd">
         <property name="url" value="jdbc:oracle:thin:@localhost:1521:xe"></property>  
         <property name="username" value="system"></property>  
         <property name="password" value="kroger"></property>  
+        <property name="defaultAutoCommit" value="false" />
     </bean>
     
     <bean id="mysessionFactory"  class="org.springframework.orm.hibernate3.annotation.AnnotationSessionFactoryBean">  
@@ -51,7 +53,7 @@ http://www.springframework.org/schema/mvc/spring-mvc-4.0.xsd">
     <bean id="transactionManager" class="org.springframework.orm.hibernate3.HibernateTransactionManager">
         <property name="sessionFactory" ref="mysessionFactory" />
     </bean>  
-    <tx:annotation-driven/>
+    <tx:annotation-driven transaction-manager="transactionManager"/>
     <bean id="template" class="org.springframework.orm.hibernate3.HibernateTemplate">  
     <property name="sessionFactory" ref="mysessionFactory"></property>  
     </bean>  
